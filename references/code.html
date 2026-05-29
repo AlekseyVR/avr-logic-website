@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AVR Logic | Автоматизация и ИИ-Агенты</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .hard-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(26, 28, 28, 1);
+        }
+        .hard-shadow-active {
+            box-shadow: 0px 0px 0px 0px rgba(26, 28, 28, 1);
+        }
+        .custom-grid-bg {
+            background-image: 
+                linear-gradient(#e2e2e2 1px, transparent 1px),
+                linear-gradient(90deg, #e2e2e2 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#d0c6ab",
+                      "secondary-container": "#d83900",
+                      "on-secondary-fixed": "#3b0900",
+                      "error": "#ba1a1a",
+                      "outline": "#7e775f",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#e9c400",
+                      "surface-tint": "#705d00",
+                      "inverse-surface": "#2f3131",
+                      "secondary-fixed-dim": "#ffb5a0",
+                      "background": "#f9f9f9",
+                      "surface-variant": "#e2e2e2",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#872000",
+                      "surface-container-high": "#e8e8e8",
+                      "inverse-on-surface": "#f1f1f1",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "tertiary": "#5e5e5e",
+                      "on-surface": "#1a1c1c",
+                      "secondary": "#ad2c00",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#dadada",
+                      "on-tertiary-container": "#5f5f5f",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e2e2e2",
+                      "tertiary-container": "#dadada",
+                      "surface": "#f9f9f9",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "primary": "#705d00",
+                      "surface-bright": "#f9f9f9",
+                      "on-primary-container": "#705e00",
+                      "on-primary-fixed": "#221b00",
+                      "primary-fixed": "#ffe16d",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "on-primary-fixed-variant": "#544600",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#eeeeee",
+                      "primary-container": "#ffd700",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-background": "#1a1c1c",
+                      "secondary-fixed": "#ffdbd1",
+                      "inverse-primary": "#e9c400",
+                      "on-surface-variant": "#4d4732",
+                      "surface-container-low": "#f3f3f3",
+                      "on-tertiary-fixed": "#1b1b1b",
+                      "on-secondary-container": "#fffbff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "1.5rem",
+                      "grid-margin": "2rem",
+                      "stack-sm": "0.5rem",
+                      "border-width": "4px",
+                      "shadow-offset": "6px",
+                      "stack-md": "1.5rem",
+                      "stack-lg": "4rem"
+              },
+              "fontFamily": {
+                      "code": ["monospace"],
+                      "label-bold": ["Space Grotesk"],
+                      "body-md": ["Inter"],
+                      "display": ["Space Grotesk"],
+                      "headline-lg": ["Space Grotesk"],
+                      "headline-md": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-bold": ["14px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display": ["84px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md custom-grid-bg selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-grid-margin py-stack-sm w-full sticky top-0 z-50 bg-surface border-b-4 border-on-surface shadow-[6px_6px_0px_0px_rgba(26,28,28,1)]">
+<div class="font-headline-md text-headline-md font-black text-on-surface italic uppercase tracking-tighter">
+            DEV_ARCHITECT
+        </div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface border-b-4 border-secondary pb-1 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,1)] transition-all" href="#projects">PROJECTS</a>
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:text-secondary hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="#stack">STACK</a>
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:text-secondary hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="#labs">LABS</a>
+<a class="font-label-bold text-label-bold uppercase tracking-tighter text-on-surface-variant hover:text-secondary hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="#archive">ARCHIVE</a>
+</nav>
+<a class="hidden md:block font-label-bold text-label-bold uppercase bg-primary-container text-on-primary-container px-6 py-3 border-4 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all active:translate-x-[6px] active:translate-y-[6px]" href="#contact">
+            HIRE_ME
+        </a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden p-2 border-4 border-on-surface bg-white" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Mobile Navigation Menu -->
+<div class="hidden fixed inset-0 z-40 bg-primary-container p-grid-margin flex flex-col justify-center items-start gap-stack-lg border-b-4 border-on-surface" id="mobile-nav">
+<button class="absolute top-8 right-8" onclick="document.getElementById('mobile-nav').classList.add('hidden')">
+<span class="material-symbols-outlined !text-4xl">close</span>
+</button>
+<a class="font-display text-4xl uppercase font-black" href="#projects" onclick="document.getElementById('mobile-nav').classList.add('hidden')">PROJECTS</a>
+<a class="font-display text-4xl uppercase font-black" href="#stack" onclick="document.getElementById('mobile-nav').classList.add('hidden')">STACK</a>
+<a class="font-display text-4xl uppercase font-black" href="#labs" onclick="document.getElementById('mobile-nav').classList.add('hidden')">LABS</a>
+<a class="font-display text-4xl uppercase font-black" href="#contact" onclick="document.getElementById('mobile-nav').classList.add('hidden')">CONTACT</a>
+</div>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex flex-col justify-center px-grid-margin border-b-4 border-on-surface bg-surface-bright pt-stack-lg pb-stack-lg overflow-hidden">
+<div class="grid grid-cols-12 gap-gutter items-center relative z-10">
+<div class="col-span-12 lg:col-span-10">
+<h1 class="font-display text-display uppercase leading-[0.85] mb-stack-md">
+                        I build <span class="text-secondary italic">Websites</span>,<br/>
+<span class="bg-primary-container px-4">Automations</span><br/> 
+                        &amp; AI Agents.
+                    </h1>
+<div class="flex flex-wrap gap-stack-md mt-stack-md">
+<div class="bg-white border-4 border-on-surface px-6 py-4 hard-shadow hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none transition-all cursor-default">
+<p class="font-code text-code uppercase font-bold">Location: Global / Remote</p>
+</div>
+<div class="bg-secondary text-white border-4 border-on-surface px-6 py-4 hard-shadow hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none transition-all cursor-default">
+<p class="font-code text-code uppercase font-bold">Status: Available for Hire</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Absolute Decorative Elements -->
+<div class="absolute -right-20 top-40 w-80 h-80 border-4 border-on-surface bg-primary-fixed -rotate-12 hidden lg:block z-0"></div>
+<div class="absolute right-40 bottom-20 w-60 h-60 border-4 border-on-surface bg-white rotate-6 hidden lg:block z-0 flex items-center justify-center">
+<span class="material-symbols-outlined !text-[120px] text-on-surface opacity-10">smart_toy</span>
+</div>
+<!-- Marquee Section -->
+<div class="absolute bottom-0 left-0 w-full bg-on-surface text-surface py-4 border-t-4 border-on-surface">
+<div class="marquee flex gap-12 items-center">
+<span class="font-label-bold text-xl uppercase italic">REACT</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">NEXT.JS</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">PYTHON</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">OPENAI</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">LANGCHAIN</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">TAILWIND CSS</span>
+<span class="material-symbols-outlined">star</span>
+<!-- Duplicate for infinite effect -->
+<span class="font-label-bold text-xl uppercase italic">REACT</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">NEXT.JS</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">PYTHON</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">OPENAI</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">LANGCHAIN</span>
+<span class="material-symbols-outlined">star</span>
+<span class="font-label-bold text-xl uppercase italic">TAILWIND CSS</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</div>
+</section>
+<!-- What I Do Section -->
+<section class="px-grid-margin py-stack-lg border-b-4 border-on-surface" id="stack">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-stack-lg italic border-l-8 border-secondary pl-6">WHAT_I_DO</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Web Creation Card -->
+<div class="group bg-white border-4 border-on-surface p-8 hard-shadow hover:bg-primary-container transition-all hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none flex flex-col gap-stack-sm">
+<div class="w-16 h-16 border-4 border-on-surface flex items-center justify-center bg-surface-container-highest group-hover:bg-white transition-colors">
+<span class="material-symbols-outlined !text-4xl">language</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase border-b-4 border-on-surface pb-2">WEB_CREATION</h3>
+<p class="font-body-md text-body-md">High-performance React/Next.js architectures with pixel-perfect Neo-Brutalist design. Optimized for speed, SEO, and radical aesthetics.</p>
+</div>
+<!-- Business Automation Card -->
+<div class="group bg-white border-4 border-on-surface p-8 hard-shadow hover:bg-secondary hover:text-white transition-all hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none flex flex-col gap-stack-sm translate-y-8">
+<div class="w-16 h-16 border-4 border-on-surface group-hover:border-white flex items-center justify-center bg-surface-container-highest group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined !text-4xl">settings_suggest</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase border-b-4 border-on-surface group-hover:border-white pb-2">BUSINESS_AUTOMATION</h3>
+<p class="font-body-md text-body-md">Python-driven microservices that eliminate manual toil. From custom ERP integrations to complex data scraping pipelines.</p>
+</div>
+<!-- AI/RAG Card -->
+<div class="group bg-white border-4 border-on-surface p-8 hard-shadow hover:bg-primary-fixed transition-all hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none flex flex-col gap-stack-sm">
+<div class="w-16 h-16 border-4 border-on-surface flex items-center justify-center bg-surface-container-highest group-hover:bg-white transition-colors">
+<span class="material-symbols-outlined !text-4xl">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase border-b-4 border-on-surface pb-2">AI / RAG</h3>
+<p class="font-body-md text-body-md">Intelligent agents powered by OpenAI &amp; LangChain. Implementing RAG pipelines that turn your private data into an expert assistant.</p>
+</div>
+</div>
+</section>
+<!-- The Work Section -->
+<section class="py-stack-lg" id="projects">
+<div class="px-grid-margin mb-stack-md flex justify-between items-end">
+<h2 class="font-headline-lg text-headline-lg uppercase italic border-l-8 border-primary pl-6">SELECTED_WORK</h2>
+<span class="font-code text-code uppercase font-bold text-secondary-container">[001 - 003]</span>
+</div>
+<div class="border-y-4 border-on-surface">
+<!-- Project 01 -->
+<div class="group flex flex-col md:flex-row border-b-4 border-on-surface hover:bg-surface-container transition-colors">
+<div class="md:w-1/2 p-grid-margin flex flex-col justify-center gap-stack-sm">
+<div class="flex gap-stack-sm mb-stack-sm">
+<span class="bg-primary-container px-3 py-1 border-2 border-on-surface text-xs font-bold font-code">NEXT.JS</span>
+<span class="bg-white px-3 py-1 border-2 border-on-surface text-xs font-bold font-code">TAILWIND</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg uppercase group-hover:italic transition-all">01. QUANTUM_DASHBOARD</h3>
+<p class="font-body-lg text-body-lg max-w-md">A real-time financial tracking interface for crypto-assets with radical data visualization.</p>
+<a class="mt-stack-md flex items-center gap-2 font-label-bold text-on-surface-variant group-hover:text-secondary underline decoration-4 underline-offset-4" href="#">VIEW PROJECT <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="md:w-1/2 border-l-0 md:border-l-4 border-on-surface overflow-hidden h-96">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" data-alt="A professional, high-contrast dashboard UI on a monitor with vibrant neon data visualizations, glowing line charts, and stark black panels. The lighting is moody with a cool blue and sharp orange color palette, emphasizing a futuristic and technical aesthetic. The scene is shot with a shallow depth of field in a minimalist high-tech workstation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxF9Oj1ZvRo4YmhDZVr0yX2KObwjaiDRBN72qR7byLU8rRK3NlF-G4C2p6bj96ctdoLsnD6f4vYnlUC8kKHfghmUkOgGg-wyn41eGYZLb2GR2pT-uLF6BEWCs8FIdOoRciGavaGLokxvkB6FFxST2yQ8vcKMteIAmD5P1Qf0W8YaxxRrqZ9MttA0JlBGsIcgkkK0_c-mLpNnGP7oxtRXQb_U5KkaPoex1QrMKFl9E4HXoOjqO5_6FVT0wePQgLrZjmQfaWiSep8Tc"/>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="group flex flex-col md:flex-row-reverse border-b-4 border-on-surface hover:bg-surface-container transition-colors">
+<div class="md:w-1/2 p-grid-margin flex flex-col justify-center gap-stack-sm">
+<div class="flex gap-stack-sm mb-stack-sm">
+<span class="bg-secondary-container text-white px-3 py-1 border-2 border-on-surface text-xs font-bold font-code">PYTHON</span>
+<span class="bg-white px-3 py-1 border-2 border-on-surface text-xs font-bold font-code">OPENAI</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg uppercase group-hover:italic transition-all">02. NEXUS_AI_AGENT</h3>
+<p class="font-body-lg text-body-lg max-w-md">An autonomous AI research assistant capable of browsing the web and synthesizing deep reports.</p>
+<a class="mt-stack-md flex items-center gap-2 font-label-bold text-on-surface-variant group-hover:text-secondary underline decoration-4 underline-offset-4" href="#">VIEW PROJECT <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="md:w-1/2 border-r-0 md:border-r-4 border-on-surface overflow-hidden h-96">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100" data-alt="Abstract visualization of an AI mind with complex geometric patterns and interconnected neural pathways glowing in bright yellow and deep black. The style is raw and architectural, featuring heavy lines and structural depth. Lighting is intense and direct, creating strong highlights and deep shadows that reinforce a bold Neo-Brutalist digital art aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCprfmD56hgAmf1Nq5lhJmD2C22sNhT9lnsjY3RD7iOsiFRszFo1bXYMdIJxrz-gGQ7FVF3ByUvnl5sglfilB5fKEvoTVT22DsGGoPSbWcI8TedtJNUPlob1fKricvST_fNSbsVPBKl9T8Srb44rzbO5PlphDNNcjmEgcwWi97VJVDLqNA90r8bL95YxzSaWwFHWX9j_MzDFsKICqyYBjqqFbgMT0pOJhwRwiGR4_TFsXW2iPRdw8sDclI-MXu1UM-dFWRoVr9C_cU"/>
+</div>
+</div>
+</div>
+<!-- Resume/GitHub Huge Block -->
+<div class="px-grid-margin mt-stack-lg">
+<a class="group block bg-primary-container border-4 border-on-surface p-12 hard-shadow hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none transition-all flex flex-col md:flex-row items-center justify-between gap-stack-md" href="https://github.com/verzhinskiy" target="_blank">
+<div class="flex items-center gap-gutter">
+<svg class="w-32 h-32 fill-on-surface" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+<div>
+<h2 class="font-display text-4xl lg:text-6xl uppercase leading-none font-black">CHECK MY CV ON GITHUB</h2>
+<p class="font-label-bold text-xl uppercase mt-2">Open-Source Code &amp; Detailed Resume</p>
+</div>
+</div>
+<span class="material-symbols-outlined !text-6xl group-hover:translate-x-4 transition-transform">east</span>
+</a>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="bg-on-surface text-surface px-grid-margin py-stack-lg border-t-4 border-on-surface overflow-hidden relative" id="contact">
+<div class="mb-stack-lg">
+<p class="font-code text-code uppercase tracking-widest text-primary-fixed mb-stack-sm">Ready to build something radical?</p>
+<h2 class="font-display text-[12vw] uppercase leading-[0.8] break-all hover:italic transition-all cursor-pointer select-all">
+                    HELLO@STARK.SYSTEMS
+                </h2>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-stack-lg">
+<div class="flex gap-gutter">
+<a class="font-display text-2xl uppercase hover:text-secondary transition-colors underline decoration-2 underline-offset-4" href="#">LINKEDIN</a>
+<a class="font-display text-2xl uppercase hover:text-secondary transition-colors underline decoration-2 underline-offset-4" href="#">GITHUB</a>
+<a class="font-display text-2xl uppercase hover:text-secondary transition-colors underline decoration-2 underline-offset-4" href="#">TWITTER</a>
+</div>
+<div class="md:text-right">
+<p class="font-label-bold text-xl uppercase mb-2">ALEKSEY VERZHINSKIY</p>
+<p class="font-code text-on-surface-variant text-surface/60">EST. 2024 — ARCHITECTING THE FUTURE</p>
+</div>
+</div>
+<!-- Massive Background Text -->
+<div class="absolute -bottom-20 -right-20 font-black text-[25vw] opacity-5 pointer-events-none select-none">
+                BUILD
+            </div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center justify-center py-stack-lg px-grid-margin gap-stack-md bg-primary dark:bg-primary-fixed border-t-4 border-on-surface">
+<div class="font-headline-lg text-headline-lg font-black text-on-primary uppercase leading-none italic">
+            ENGINEER_STARK_SYSTEMS
+        </div>
+<div class="flex gap-gutter">
+<a class="font-display text-display uppercase leading-none text-on-primary underline decoration-border-width cursor-pointer hover:italic transition-all" href="#">GITHUB</a>
+<a class="font-display text-display uppercase leading-none text-on-primary/80 hover:text-on-primary cursor-pointer hover:italic transition-all" href="#">LINKEDIN</a>
+<a class="font-display text-display uppercase leading-none text-on-primary/80 hover:text-on-primary cursor-pointer hover:italic transition-all" href="#">DOCS</a>
+</div>
+<div class="font-code text-code text-on-primary/60 mt-stack-md uppercase">
+            ©2024 ENGINEER_STARK_SYSTEMS | ALL RIGHTS RESERVED
+        </div>
+</footer>
+<!-- Interactive Script for micro-interactions -->
+<script>
+        // Smooth reveal or interactions could go here
+        document.querySelectorAll('.hard-shadow').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'translate(6px, 6px)';
+                el.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,1)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = 'translate(0px, 0px)';
+                el.style.boxShadow = '6px 6px 0px 0px rgba(0,0,0,1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0px, 0px)';
+                el.style.boxShadow = '6px 6px 0px 0px rgba(0,0,0,1)';
+            });
+        });
+    </script>
+</body></html>

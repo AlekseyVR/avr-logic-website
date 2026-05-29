@@ -1,0 +1,322 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+---
+
+<Layout>
+  <Header />
+
+  <main>
+    <section class="relative min-h-screen md:h-[90vh] flex flex-col md:flex-row border-b-4 border-on-surface overflow-hidden bg-surface-bright">
+      
+      <div class="absolute top-4 left-4 right-4 md:top-8 md:left-8 md:right-auto z-30 flex flex-col gap-2 pointer-events-none">
+        <!-- <div class="bg-white border-4 border-on-surface px-3 py-1 md:px-4 md:py-2 hard-shadow inline-block w-max max-w-full">
+          <p class="font-code text-[10px] md:text-sm uppercase font-bold truncate">Локация: Удаленная работа</p>
+        </div> -->
+        <div class="bg-secondary text-white border-4 border-on-surface px-3 py-1 md:px-4 md:py-2 hard-shadow inline-block w-max max-w-full">
+          <p class="font-code text-[10px] md:text-sm uppercase font-bold truncate">Статус: Открыт к проектам</p>
+        </div>
+        <div class="mt-2 md:mt-4 w-full md:max-w-md bg-on-surface text-surface px-4 py-3 border-4 border-surface shadow-[4px_4px_0px_0px_rgba(173,44,0,1)] pointer-events-auto">
+          <h2 class="font-headline-md text-base sm:text-lg md:text-2xl uppercase italic leading-tight">
+            Внедряю автоматизацию & ИИ / RAG агентов.<br class="hidden sm:block"/>
+            Telegram-боты & Mini Apps.
+          </h2>
+        </div>
+      </div>
+
+      <div class="relative flex-1 bg-primary-container border-b-4 md:border-b-0 md:border-r-4 border-on-surface flex items-center justify-center overflow-hidden min-h-[33vh] md:min-h-0">
+        <h2 class="font-display text-[25vw] md:text-[18vw] uppercase font-black text-on-surface opacity-100 leading-none select-none hover:italic transition-all">WEB</h2>
+        <div class="absolute inset-0 flex items-end justify-start p-4 opacity-10 pointer-events-none">
+          <span class="material-symbols-outlined !text-[120px] md:!text-[200px]">language</span>
+        </div>
+      </div>
+
+      <div class="relative flex-1 bg-secondary border-b-4 md:border-b-0 md:border-r-4 border-on-surface flex items-center justify-center overflow-hidden min-h-[33vh] md:min-h-0">
+        <h2 class="font-display text-[25vw] md:text-[18vw] uppercase font-black text-white leading-none select-none hover:italic transition-all -rotate-90 md:rotate-0">AUTO</h2>
+        <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+          <span class="material-symbols-outlined !text-[120px] md:!text-[200px] text-white">settings_suggest</span>
+        </div>
+      </div>
+
+      <div class="relative flex-1 bg-on-surface flex items-center justify-center overflow-hidden min-h-[33vh] md:min-h-0">
+        <h2 class="font-display text-[25vw] md:text-[18vw] uppercase font-black text-primary-container leading-none select-none hover:italic transition-all">AI</h2>
+        <div class="absolute inset-0 flex items-start justify-end p-4 opacity-10 pointer-events-none">
+          <span class="material-symbols-outlined !text-[120px] md:!text-[200px] text-surface">psychology</span>
+        </div>
+      </div>
+
+      <div class="absolute top-[75%] md:top-2/3 left-0 w-full bg-on-surface text-surface py-4 md:py-6 border-y-4 border-on-surface z-20 -translate-y-1/2 rotate-[-2deg] scale-110 shadow-2xl">
+        <div class="marquee flex gap-8 md:gap-12 items-center">
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">PYTHON</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">N8N AUTOMATION</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">TELEGRAM MINI APPS</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">RAG SYSTEMS</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">OPENAI / LLM</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">PYTHON</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">N8N AUTOMATION</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">TELEGRAM MINI APPS</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">RAG SYSTEMS</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+          <span class="font-label-bold text-lg md:text-2xl uppercase italic">OPENAI / LLM</span>
+          <span class="material-symbols-outlined !text-xl md:!text-3xl text-secondary">star</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-grid-margin py-12 md:py-stack-lg border-b-4 border-on-surface bg-surface-container" id="about">
+      <div class="bg-primary-fixed border-4 border-on-surface p-6 md:p-16 hard-shadow flex flex-col lg:flex-row gap-8 md:gap-12 items-start transition-transform hover:translate-x-[2px] hover:translate-y-[2px]">
+        
+        <div class="lg:w-1/3 flex flex-col gap-4 md:gap-6 lg:sticky lg:top-24">
+          <h2 class="font-headline-lg text-3xl md:text-[40px] uppercase italic leading-none border-l-8 border-on-surface pl-4">
+            ДИСКЛЕЙМЕР
+          </h2>
+          <div class="inline-flex">
+            <span class="bg-on-surface text-surface px-3 py-2 md:px-4 md:py-2 font-code text-xs md:text-sm font-bold uppercase border-2 border-on-surface">
+              КТО Я И ЗАЧЕМ ЭТОТ ПРОЕКТ
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:w-2/3 flex flex-col gap-4 w-full" id="about-accordion">
+          
+          <div class="accordion-item bg-white border-4 border-on-surface transition-all">
+            <button class="accordion-header w-full text-left px-4 md:px-6 py-4 flex justify-between items-center bg-primary-container hover:bg-secondary hover:text-white active:bg-secondary active:text-white transition-colors cursor-pointer group">
+              <span class="font-label-bold text-base md:text-xl uppercase tracking-tight font-black">01. Экспертиза и бэкграунд</span>
+              <span class="material-symbols-outlined accordion-icon transition-transform">remove</span>
+            </button>
+            <div class="accordion-content px-4 md:px-6 py-6 border-t-4 border-on-surface block">
+              <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
+                Я SDET-инженер с опытом и экспертизой из крупных и успешных ИТ-компаний. Запускаю этот проект самостоятельно, чтобы оценить реальный спрос бизнеса на сложные веб-решения, автоматизацию процессов и кастомных ИИ-агентов.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item bg-white border-4 border-on-surface transition-all">
+            <button class="accordion-header w-full text-left px-4 md:px-6 py-4 flex justify-between items-center bg-surface hover:bg-secondary hover:text-white active:bg-secondary active:text-white transition-colors cursor-pointer group">
+              <span class="font-label-bold text-base md:text-xl uppercase tracking-tight font-black">02. Бизнес-подход</span>
+              <span class="material-symbols-outlined accordion-icon transition-transform">add</span>
+            </button>
+            <div class="accordion-content px-4 md:px-6 py-6 border-t-4 border-on-surface hidden">
+              <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
+                Это формат независимой практики. Я работаю напрямую и концептуально понимаю главную метрику бизнеса - генерацию прибыли. Грамотная ИТ-автоматизация - это именно тот инструмент, который помогает кратно снизить издержки. При этом я гарантирую прозрачность: вы не платите за скрытые подписки или навязанную «поддержку за воздух».
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item bg-white border-4 border-on-surface transition-all">
+            <button class="accordion-header w-full text-left px-4 md:px-6 py-4 flex justify-between items-center bg-surface hover:bg-secondary hover:text-white active:bg-secondary active:text-white transition-colors cursor-pointer group">
+              <span class="font-label-bold text-base md:text-xl uppercase tracking-tight font-black">03. Глобальная цель</span>
+              <span class="material-symbols-outlined accordion-icon transition-transform">add</span>
+            </button>
+            <div class="accordion-content px-4 md:px-6 py-6 border-t-4 border-on-surface hidden">
+              <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
+                Буду с вами предельно откровенен: моя глобальная цель - построить собственный успешный проект и закрепиться в мире бизнеса. И чтобы к этой цели прийти, моя главная задача сейчас - блестяще решить вашу проблему, принести осязаемую пользу и передать вам полностью автономную систему со всеми доступами. Давайте поможем друг другу достичь отличных результатов.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-grid-margin py-12 md:py-stack-lg border-b-4 border-on-surface" id="benefits">
+      <h2 class="font-headline-lg text-3xl md:text-headline-lg uppercase mb-8 md:mb-stack-lg italic border-l-8 border-secondary pl-4 md:pl-6">ПОЧЕМУ НАПРЯМУЮ ВЫГОДНЕЕ</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white border-4 border-on-surface p-5 md:p-6 hard-shadow flex flex-col gap-3 md:gap-4 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all">
+          <div class="font-code text-[10px] md:text-xs font-bold text-secondary uppercase">[ 01. БЮДЖЕТ ]</div>
+          <h4 class="font-label-bold text-lg md:text-xl uppercase text-on-surface border-b-2 border-on-surface pb-1">Конкурентная оплата</h4>
+          <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+            Я только начинаю развивать практику в рамках этого проекта, поэтому предлагаю senior-экспертизу по ценам существенно выгоднее средних рыночных предложений ИТ-студий.
+          </p>
+        </div>
+
+        <div class="bg-white border-4 border-on-surface p-5 md:p-6 hard-shadow flex flex-col gap-3 md:gap-4 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all">
+          <div class="font-code text-[10px] md:text-xs font-bold text-secondary uppercase">[ 02. КОНТРОЛЬ ]</div>
+          <h4 class="font-label-bold text-lg md:text-xl uppercase text-on-surface border-b-2 border-on-surface pb-1">Работа без посредников</h4>
+          <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+            Экономия времени и сохранение 100% контекста задачи. Прямой диалог позволяет мне максимально точно понять специфику вашего бизнеса, чтобы затем самостоятельно спроектировать правильную систему.
+          </p>
+        </div>
+
+        <div class="bg-white border-4 border-on-surface p-5 md:p-6 hard-shadow flex flex-col gap-3 md:gap-4 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all">
+          <div class="font-code text-[10px] md:text-xs font-bold text-secondary uppercase">[ 03. ЧЕСТНОСТЬ ]</div>
+          <h4 class="font-label-bold text-lg md:text-xl uppercase text-on-surface border-b-2 border-on-surface pb-1">Фиксированный объем</h4>
+          <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+            Оплата идет за конкретный объем работы. Вы защищены от скрытых подписок. Со своей стороны я защищаю границы проекта: масштабирование после запуска оформляется как новый этап сотрудничества.
+          </p>
+        </div>
+
+        <div class="bg-white border-4 border-on-surface p-5 md:p-6 hard-shadow flex flex-col gap-3 md:gap-4 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all">
+          <div class="font-code text-[10px] md:text-xs font-bold text-secondary uppercase">[ 04. СВОБОДА ]</div>
+          <h4 class="font-label-bold text-lg md:text-xl uppercase text-on-surface border-b-2 border-on-surface pb-1">Никаких «заложников»</h4>
+          <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+            Я против привязки клиентов. Все домены и аккаунты оформляются на вас. Я передаю готовую систему, ключи и документацию. Ваша инфраструктура остается на 100% автономной.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="px-4 md:px-grid-margin py-12 md:py-stack-lg border-b-4 border-on-surface" id="stack">
+      <h2 class="font-headline-lg text-3xl md:text-headline-lg uppercase mb-8 md:mb-stack-lg italic border-l-8 border-secondary pl-4 md:pl-6">МОИ УСЛУГИ</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <ServiceCard variant="yellow" icon="language" title="САЙТЫ ДЛЯ БИЗНЕСА" desc="Разрабатываю современные корпоративные сайты и лендинги, которые продают. От быстрого запуска до сложных порталов с личными кабинетами и высокой конверсией." />
+        <ServiceCard variant="orange" icon="settings_suggest" title="АВТОМАТИЗАЦИЯ ПРОЦЕССОВ" desc="Избавляю ваших сотрудников от ручной работы. Настраиваю интеграции между сайтом, CRM-системой и базами данных, чтобы заявки обрабатывались мгновенно." />
+        <ServiceCard variant="light-yellow" icon="psychology" title="ВНЕДРЕНИЕ ИИ" desc="Создаю умных цифровых помощников, которые знают ваши прайсы и документы. Они могут консультировать клиентов на сайте 24/7, не устают и не совершают ошибок." />
+        <ServiceCard variant="blaze-orange" icon="send" title="TELEGRAM-ЭКОСИСТЕМА" desc="Превращаю мессенджер в полноценный канал продаж. Разрабатываю умных чат-ботов и полноценные веб-приложения (Mini Apps) прямо внутри Telegram." />
+      </div>
+    </section>
+
+    <section class="px-4 md:px-grid-margin py-8 md:py-stack-md border-b-4 border-on-surface bg-primary-fixed">
+      <div class="bg-white border-4 border-on-surface p-6 md:p-12 hard-shadow flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
+        <div class="max-w-3xl space-y-4">
+          <div class="inline-block bg-on-surface text-surface px-2 py-1 md:px-3 md:py-1 font-code text-[10px] md:text-xs font-bold uppercase">
+            [ ЛЮБЫЕ НЕСТАНДАРТНЫЕ ИДЕИ ]
+          </div>
+          <h3 class="font-display text-2xl sm:text-3xl md:text-4xl uppercase font-black leading-tight md:leading-none">
+            Есть задача, которая кажется невыполнимой?
+          </h3>
+          <p class="font-body-lg text-base md:text-lg lg:text-xl text-on-surface-variant leading-relaxed">
+            Не бывает глупых идей для бизнеса. Если у вас есть нестандартная задача, которая может принести пользу вашему бизнесу, но вы не знаете, как её реализовать - давайте обсудим.
+          </p>
+        </div>
+        <a href="/contact" class="w-full md:w-auto text-center whitespace-nowrap bg-secondary text-white font-label-bold uppercase text-sm md:text-base px-6 py-4 md:px-8 md:py-5 border-4 border-on-surface hard-shadow hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all">
+          ДАВАЙТЕ ОБСУДИМ
+        </a>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-stack-lg" id="projects">
+      <div class="px-4 md:px-grid-margin mb-6 md:mb-stack-md flex justify-between items-end">
+        <h2 class="font-headline-lg text-3xl md:text-headline-lg uppercase italic border-l-8 border-primary pl-4 md:pl-6">Портфолио</h2>
+        <span class="font-code text-sm md:text-code uppercase font-bold text-secondary-container">[001 - 002]</span>
+      </div>
+      <div class="border-y-4 border-on-surface">
+        
+        <div class="group flex flex-col md:flex-row border-b-4 border-on-surface hover:bg-surface-container transition-colors">
+          <div class="md:w-1/2 p-6 md:p-grid-margin flex flex-col justify-center gap-3 md:gap-stack-sm">
+            <div class="flex gap-2 md:gap-stack-sm mb-2 md:mb-stack-sm">
+              <span class="bg-primary-container px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">N8N</span>
+              <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">AI AGENT</span>
+            </div>
+            <h3 class="font-headline-lg text-2xl md:text-headline-lg uppercase group-hover:italic transition-all">01. INTELLIGENT_N8N_CONSULTANT</h3>
+            <p class="font-body-lg text-base md:text-lg lg:text-body-lg max-w-md">ИИ-консультант, построенный на базе n8n, автоматизирующий обработку входящих запросов и интеграцию с CRM.</p>
+            <a class="mt-4 md:mt-stack-md flex items-center gap-2 font-label-bold text-sm md:text-base text-on-surface-variant group-hover:text-secondary" href="/portfolio">ПОДРОБНЕЕ<span class="material-symbols-outlined">arrow_forward</span></a>
+          </div>
+          <div class="md:w-1/2 border-t-4 md:border-t-0 md:border-l-4 border-on-surface overflow-hidden h-64 md:h-96 bg-neutral-800 flex items-center justify-center text-white relative">
+              <img 
+                src="/images/sales_chatbot_n8n.jpg" 
+                alt="Схема работы n8n агента" 
+                class="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 group-active:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100 group-active:scale-100"
+              />
+          </div>
+        </div>
+
+        <div class="group flex flex-col md:flex-row-reverse border-b-4 border-on-surface hover:bg-surface-container transition-colors">
+          <div class="md:w-1/2 p-6 md:p-grid-margin flex flex-col justify-center gap-3 md:gap-stack-sm">
+            <div class="flex gap-2 md:gap-stack-sm mb-2 md:mb-stack-sm">
+              <span class="bg-secondary-container text-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code">PYTHON</span>
+              <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">CUSTOM RAG</span>
+            </div>
+            <h3 class="font-headline-lg text-2xl md:text-headline-lg uppercase group-hover:italic transition-all">02. CUSTOM_RAG_ARCHITECT</h3>
+            <p class="font-body-lg text-base md:text-lg lg:text-body-lg max-w-md">Высокоточная система ИИ-консультирования на базе корпоративных документов без галлюцинаций моделей.</p>
+            <a class="mt-4 md:mt-stack-md flex items-center gap-2 font-label-bold text-sm md:text-base text-on-surface-variant group-hover:text-secondary" href="/portfolio">ПОДРОБНЕЕ<span class="material-symbols-outlined">arrow_forward</span></a>
+          </div>
+          <div class="md:w-1/2 border-t-4 md:border-t-0 md:border-r-4 border-on-surface overflow-hidden h-64 md:h-96 bg-neutral-900 flex items-center justify-center text-white relative">
+              <img 
+                src="/images/screenaichat.jpg" 
+                alt="Схема работы RAG агента" 
+                class="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100 group-active:grayscale-0 group-active:scale-100"
+              />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="px-4 md:px-grid-margin py-12 md:py-stack-lg border-b-4 border-on-surface" id="audit">
+      <div class="bg-on-surface text-surface border-4 border-on-surface p-6 md:p-12 hard-shadow flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 relative overflow-hidden transition-transform hover:translate-x-[2px] hover:translate-y-[2px]">
+        
+        <div class="absolute -right-10 -top-10 opacity-5 pointer-events-none select-none hidden md:block">
+          <span class="material-symbols-outlined !text-[250px] text-surface">troubleshoot</span>
+        </div>
+
+        <div class="lg:w-2/3 relative z-10 space-y-4 md:space-y-6">
+          <div class="flex flex-wrap gap-2 mb-2">
+            <span class="bg-primary-container text-on-surface px-2 py-1 md:px-3 md:py-1 font-code text-[10px] md:text-xs font-bold uppercase border-2 border-on-surface">КОНСАЛТИНГ</span>
+            <span class="bg-secondary text-white px-2 py-1 md:px-3 md:py-1 font-code text-[10px] md:text-xs font-bold uppercase border-2 border-on-surface">ТЕХНИЧЕСКИЙ АУДИТ</span>
+          </div>
+          
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-none text-surface">
+            Бизнес тонет в рутине? <br/>
+            <span class="text-primary-fixed italic">Давайте найдем узкие места.</span>
+          </h2>
+          
+          <p class="font-body-lg text-base md:text-xl lg:text-2xl text-surface-container-highest max-w-3xl">
+            Предлагаю персональную консультацию и технический аудит ваших процессов. 
+            Мы составим пошаговый план внедрения ИИ, чтобы <strong class="text-white">избавить команду от рутины и уменьшить издержки.</strong>
+          </p>
+        </div>
+
+        <div class="lg:w-1/3 relative z-10 w-full flex justify-start lg:justify-end">
+          <a href="/contact" class="group block bg-primary-fixed text-on-surface border-4 border-on-surface p-6 md:p-8 hard-shadow hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all text-center w-full lg:w-auto">
+            <span class="font-display text-2xl md:text-3xl uppercase block mb-2 font-black leading-none">ЗАКАЗАТЬ АУДИТ</span>
+            <span class="font-code text-xs md:text-sm font-bold flex items-center justify-center gap-2 text-on-surface-variant">
+              ПЕРЕЙТИ К ФОРМЕ <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">east</span>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <script>
+      // Логика работы аккордеона в секции About
+      const accordionItems = document.querySelectorAll('#about-accordion .accordion-item');
+
+      accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        
+        header?.addEventListener('click', () => {
+          const content = item.querySelector('.accordion-content');
+          const icon = item.querySelector('.accordion-icon');
+          const isCurrentlyOpen = !content?.classList.contains('hidden');
+
+          // Сначала закрываем все аккордеоны
+          accordionItems.forEach(otherItem => {
+            const otherContent = otherItem.querySelector('.accordion-content');
+            const otherIcon = otherItem.querySelector('.accordion-icon');
+            const otherHeader = otherItem.querySelector('.accordion-header');
+            
+            otherContent?.classList.add('hidden');
+            otherContent?.classList.remove('block');
+            if (otherIcon) otherIcon.textContent = 'add';
+            otherHeader?.classList.replace('bg-primary-container', 'bg-surface');
+          });
+
+          // Если блок был закрыт — открываем его
+          if (!isCurrentlyOpen) {
+            content?.classList.remove('hidden');
+            content?.classList.add('block');
+            if (icon) icon.textContent = 'remove';
+            header?.classList.replace('bg-surface', 'bg-primary-container');
+          }
+        });
+      });
+    </script>
+</Layout>

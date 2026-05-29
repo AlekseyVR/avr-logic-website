@@ -1,0 +1,47 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t-4 border-on-surface bg-white flex flex-col mt-auto">
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 border-b-4 border-on-surface">
+    
+    <div class="p-6 md:p-8 lg:p-12 bg-primary-container border-b-4 md:border-b-0 md:border-r-4 border-on-surface flex flex-col items-start justify-center group cursor-default transition-colors hover:bg-white active:bg-white">
+      <div class="flex items-end gap-2 mb-2">
+        <span class="font-display text-6xl lg:text-7xl font-black text-on-surface leading-none group-hover:italic group-active:italic transition-all">A</span>
+        <span class="font-code text-sm md:text-base font-bold uppercase text-on-surface-variant mb-1">— AUTOMATION</span>
+      </div>
+      <p class="font-body-md text-sm text-on-surface-variant mt-2 max-w-[280px]">
+        Автоматизация рутинных бизнес-процессов. Передача задач от людей к алгоритмам.
+      </p>
+    </div>
+
+    <div class="p-6 md:p-8 lg:p-12 bg-secondary text-white border-b-4 md:border-b-0 md:border-r-4 border-on-surface flex flex-col items-start justify-center group cursor-default transition-colors hover:bg-on-surface active:bg-on-surface">
+      <div class="flex items-end gap-2 mb-2">
+        <span class="font-display text-6xl lg:text-7xl font-black leading-none group-hover:italic group-active:italic transition-all">V</span>
+        <span class="font-code text-sm md:text-base font-bold uppercase text-white/70 mb-1">— VELOCITY</span>
+      </div>
+      <p class="font-body-md text-sm text-white/80 mt-2 max-w-[280px]">
+        Ускорение обработки заявок и операций. Бизнес должен работать на максимальных скоростях.
+      </p>
+    </div>
+
+    <div class="p-6 md:p-8 lg:p-12 bg-on-surface text-surface flex flex-col items-start justify-center group cursor-default transition-colors hover:bg-primary-fixed hover:text-on-surface active:bg-primary-fixed active:text-on-surface">
+      <div class="flex items-end gap-2 mb-2">
+        <span class="font-display text-6xl lg:text-7xl font-black text-primary-container leading-none group-hover:italic group-active:italic transition-all group-hover:text-on-surface group-active:text-on-surface">R</span>
+        <span class="font-code text-sm md:text-base font-bold uppercase text-surface-variant mb-1 group-hover:text-on-surface-variant group-active:text-on-surface-variant">— RESOLUTION</span>
+      </div>
+      <p class="font-body-md text-sm text-surface-variant mt-2 max-w-[280px] group-hover:text-on-surface-variant group-active:text-on-surface-variant">
+        Комплексное решение нетривиальных инженерных задач. От архитектуры до деплоя.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="px-4 md:px-grid-margin py-4 bg-on-surface text-surface flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-code uppercase">
+    <span>&copy; {currentYear} AVR LOGIC. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</span>
+    <span class="text-surface-variant">DESIGNED & ENGINEERED IN-HOUSE</span>
+  </div>
+
+</footer>

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  /* Ваши фирменные цвета из DESIGN.md */
+  --color-surface: #f9f9f9;
+  --color-on-surface: #1a1c1c;
+  --color-primary: #705d00;
+  --color-primary-container: #ffd700;
+  --color-on-primary-container: #705e00;
+  --color-secondary: #ad2c00;
+  --color-secondary-container: #d83900;
+  --color-surface-container-highest: #e2e2e2;
+  --color-surface-bright: #f9f9f9;
+  --color-primary-fixed: #ffe16d;
+  --color-on-surface-variant: #4d4732;
+
+  /* Шрифты */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-headline-md: "Space Grotesk", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-code: monospace;
+
+  /* Отступы (в v4 они автоматически станут доступны как p-grid-margin, m-gutter и т.д.) */
+  --spacing-grid-margin: 2rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-stack-sm: 0.5rem;
+  --spacing-stack-md: 1.5rem;
+  --spacing-stack-lg: 4rem;
+}
+
+/* Сюда же переносим ваши кастомные брутальные стили */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hard-shadow {
+  box-shadow: 6px 6px 0px 0px rgba(26, 28, 28, 1);
+}
+
+.custom-grid-bg {
+  background-image: 
+    linear-gradient(#e2e2e2 1px, transparent 1px),
+    linear-gradient(90deg, #e2e2e2 1px, transparent 1px);
+  background-size: 40px 40px;
+}

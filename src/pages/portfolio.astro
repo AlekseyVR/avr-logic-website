@@ -1,0 +1,159 @@
+---
+// src/pages/portfolio.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+
+  <main class="min-h-screen py-8 md:pt-stack-lg md:pb-stack-lg">
+    
+    <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+    <section class="px-4 md:px-grid-margin mb-8 md:mb-stack-lg">
+      <h1 class="font-display text-4xl md:text-[64px] lg:text-display uppercase leading-[0.85] border-l-8 border-primary pl-4 md:pl-6">
+        АВТОМАТИЗАЦИЯ<br/><span class="text-secondary italic">ИИ-АГЕНТЫ</span>
+      </h1>
+      <p class="font-code text-sm md:text-lg uppercase mt-4 md:mt-6 text-on-surface-variant max-w-2xl">
+        [ ПОРТФОЛИО: ИИ-АГЕНТЫ, АВТОМАТИЗАЦИЯ И ТЕЛЕГРАМ-ЭКОСИСТЕМА ]
+      </p>
+    </section>
+
+    <!-- ПРОЕКТ 01: N8N -->
+    <section class="px-4 md:px-grid-margin py-8 md:py-stack-md border-y-4 border-on-surface bg-white mb-8 md:mb-stack-lg group">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+        
+        <div class="flex flex-col gap-4 md:gap-6 p-4 md:p-8">
+          <div class="flex flex-wrap gap-2 md:gap-stack-sm mb-2 md:mb-stack-sm">
+            <span class="bg-primary-container px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">N8N</span>
+            <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">AI AGENT</span>
+            <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">CRM INTEGRATION</span>
+          </div>
+          
+          <h2 class="font-headline-lg text-2xl md:text-4xl uppercase leading-none group-hover:italic transition-all">
+            01. ИНТЕЛЛЕКТУАЛЬНЫЙ N8N-КОНСУЛЬТАНТ
+          </h2>
+          
+          <div class="font-body-lg text-sm md:text-base lg:text-lg text-on-surface space-y-3 md:space-y-4">
+            <p><strong>Задача:</strong> Автоматизировать первичную обработку лидов и консультирование клиентов без участия живого менеджера.</p>
+            <p><strong>Решение:</strong> Разработан автономный агент на базе n8n. Бот принимает запрос, анализирует намерения через LLM, квалифицирует лида и автоматически создает сделку в CRM с прикрепленной саммаризацией диалога.</p>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 md:mt-4 border-t-4 border-on-surface pt-4">
+            <div>
+              <p class="font-code text-xs md:text-sm text-on-surface-variant uppercase">Экономия времени</p>
+              <p class="font-display text-2xl md:text-3xl text-secondary">~15 ч/нед</p>
+            </div>
+            <div>
+              <p class="font-code text-xs md:text-sm text-on-surface-variant uppercase">Интеграции</p>
+              <p class="font-label-bold text-sm md:text-lg">Telegram + CRM + OpenAI</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-4 border-on-surface h-full min-h-[250px] md:min-h-[400px] bg-surface-container-highest hard-shadow flex items-center justify-center relative overflow-hidden transition-transform group-hover:translate-x-[4px] group-hover:translate-y-[4px] group-hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">
+          <div class="absolute inset-0 custom-grid-bg opacity-50"></div>
+          <img 
+            src="/images/sales_chatbot_n8n.jpg" 
+            alt="ИИ n8n бот для обработки лидов" 
+            class="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100 group-active:grayscale-0 group-active:scale-100"
+          />
+        </div>
+
+      </div>
+    </section>
+    
+    <!-- ПРОЕКТ 02: ИИ Консультант -->
+    <section class="px-4 md:px-grid-margin py-8 md:py-stack-md border-b-4 border-on-surface bg-surface-bright mb-8 md:mb-stack-lg group">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+        
+        <div class="border-4 border-on-surface h-full min-h-[250px] md:min-h-[400px] bg-primary-fixed hard-shadow flex items-center justify-center relative overflow-hidden order-last lg:order-first transition-transform group-hover:translate-x-[4px] group-hover:translate-y-[4px] group-hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">
+          <div class="absolute inset-0 custom-grid-bg opacity-30"></div>
+          <img 
+            src="/images/screenaichat.jpg" 
+            alt="ИИ бот на сайте, консультирующий клиентов" 
+            class="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100 group-active:grayscale-0 group-active:scale-100"
+          />
+        </div>
+
+        <div class="flex flex-col gap-4 md:gap-6 p-4 md:p-8">
+          <div class="flex flex-wrap gap-2 md:gap-stack-sm mb-2 md:mb-stack-sm">
+            <span class="bg-secondary-container text-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code">PYTHON</span>
+            <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">LANGCHAIN</span>
+            <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">FASTAPI</span>
+            <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">CHROMADB</span>
+          </div>
+          
+          <h2 class="font-headline-lg text-2xl md:text-4xl uppercase leading-none group-hover:italic transition-all">
+            02. ИИ-КОНСУЛЬТАНТ НА ВЕБ-САЙТЕ
+          </h2>
+          
+          <div class="font-body-lg text-sm md:text-base lg:text-lg text-on-surface space-y-3 md:space-y-4">
+            <p><strong>Задача:</strong> Развернуть автономного ИИ-консультанта для сайта, который отвечает строго по внутренним документам (без галлюцинаций), консультирует по ассортименту и мгновенно передает теплые лиды менеджерам.</p>
+            <p><strong>Решение:</strong> Разработана полноценная White-Label SaaS-платформа. Агент самостоятельно парсит PDF-документы и Google-таблицы. Встроен лимитер от спама и защита бюджета API. Администратор получает расшифровки диалогов прямо в Telegram.</p>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 md:mt-4 border-t-4 border-on-surface pt-4">
+            <div>
+              <p class="font-code text-xs md:text-sm text-on-surface-variant uppercase">Интеграция на сайт</p>
+              <p class="font-display text-xl md:text-2xl text-primary-container-on font-black">1 СТРОЧКА КОДА</p>
+            </div>
+            <div>
+              <p class="font-code text-xs md:text-sm text-on-surface-variant uppercase">Основа данных</p>
+              <p class="font-label-bold text-sm md:text-lg">PDF + Google Sheets + Сайты</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ПРОЕКТ 03: Nutri Bot -->
+    <section class="px-4 md:px-grid-margin py-8 md:py-stack-md border-b-4 border-on-surface bg-white group">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+
+        <div class="flex flex-col gap-4 md:gap-6 p-4 md:p-8">
+          <div class="flex flex-wrap gap-2 md:gap-stack-sm mb-2 md:mb-stack-sm">
+            <span class="bg-primary-container px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">TELEGRAM BOT</span>
+            <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">AI COACH</span>
+            <span class="bg-white px-2 py-1 md:px-3 md:py-1 border-2 border-on-surface text-[10px] md:text-xs font-bold font-code text-on-surface">VISION LLM</span>
+          </div>
+
+          <h2 class="font-headline-lg text-2xl md:text-4xl uppercase leading-none group-hover:italic transition-all">
+            03. SMART NUTRI BOT
+          </h2>
+
+          <div class="font-body-lg text-sm md:text-base lg:text-lg text-on-surface space-y-3 md:space-y-4">
+            <p><strong>Задача:</strong> Создать персонального ИИ-ассистента по здоровому питанию в Telegram, который избавляет пользователя от ручного ведения дневников калорий.</p>
+            <p><strong>Решение:</strong> Разработан интерактивный бот на Python (Aiogram + FastAPI). Главная фишка — интеграция мультимодальной модели (Gemini Vision / OpenAI), которая за 3 секунды распознает состав и вес блюда по фотографии. Бот заносит данные в базу SQLite, трекает водный баланс и генерирует рецепты.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 md:mt-4 border-t-4 border-on-surface pt-4">
+            <div>
+              <p class="font-code text-xs md:text-sm text-on-surface-variant uppercase">Анализ тарелки по фото</p>
+              <p class="font-display text-2xl md:text-3xl text-secondary">~3 сек</p>
+            </div>
+            <div>
+              <p class="font-code text-xs md:text-sm text-on-surface-variant uppercase">Стек решения</p>
+              <p class="font-label-bold text-sm md:text-lg">Python + Vision API + SQLite</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-4 border-on-surface h-full min-h-[250px] md:min-h-[400px] bg-secondary-container hard-shadow flex items-center justify-center relative overflow-hidden transition-transform group-hover:translate-x-[4px] group-hover:translate-y-[4px] group-hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">
+          <div class="absolute inset-0 custom-grid-bg opacity-20"></div>
+          <img 
+            src="/images/NutriBot_cr_2.png" 
+            alt="Бот в Telegram, распознающий еду по фото" 
+            class="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100 group-active:grayscale-0 group-active:scale-100"
+          />
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

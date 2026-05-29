@@ -1,0 +1,40 @@
+---
+// Импортируем стили Tailwind v4 и ваши кастомные классы
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AVR Logic | Автоматизация и ИИ-Агенты</title>
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  </head>
+  <body ontouchstart="" class="bg-surface text-on-surface font-body-md custom-grid-bg selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+    
+    <slot />
+
+    <script>
+      document.querySelectorAll('.hard-shadow').forEach(el => {
+        const element = el as HTMLElement;
+        element.addEventListener('mousedown', () => {
+          element.style.transform = 'translate(6px, 6px)';
+          element.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,1)';
+        });
+        element.addEventListener('mouseup', () => {
+          element.style.transform = 'translate(0px, 0px)';
+          element.style.boxShadow = '6px 6px 0px 0px rgba(0,0,0,1)';
+        });
+        element.addEventListener('mouseleave', () => {
+          element.style.transform = 'translate(0px, 0px)';
+          element.style.boxShadow = '6px 6px 0px 0px rgba(0,0,0,1)';
+        });
+      });
+    </script>
+  </body>
+</html>

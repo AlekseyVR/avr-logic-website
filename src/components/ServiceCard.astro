@@ -1,0 +1,45 @@
+---
+// src/components/ServiceCard.astro
+interface Props {
+  title: string;
+  desc: string;
+  icon: string;
+  variant: 'yellow' | 'orange' | 'light-yellow' | 'blaze-orange';
+}
+
+const { title, desc, icon, variant } = Astro.props;
+
+// Маппинг стилей: изолируем длинные хвосты классов Tailwind v4 внутри компонента
+const styles = {
+  'yellow': {
+    card: "hover:bg-primary-container text-on-surface",
+    icon: "group-hover:bg-white text-on-surface border-on-surface",
+    title: "border-on-surface"
+  },
+  'orange': {
+    card: "hover:bg-secondary hover:text-white",
+    icon: "group-hover:border-white group-hover:bg-secondary text-on-surface",
+    title: "group-hover:border-white border-on-surface"
+  },
+  'light-yellow': {
+    card: "hover:bg-primary-fixed text-on-surface",
+    icon: "group-hover:bg-white text-on-surface border-on-surface",
+    title: "border-on-surface"
+  },
+  'blaze-orange': {
+    card: "hover:bg-secondary-container hover:text-white",
+    icon: "group-hover:border-white group-hover:bg-secondary-container text-on-surface",
+    title: "group-hover:border-white border-on-surface"
+  }
+};
+
+const currentStyle = styles[variant];
+---
+
+<div class={`group bg-white border-4 border-on-surface p-8 hard-shadow transition-all hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none flex flex-col gap-stack-sm ${currentStyle.card}`}>
+  <div class={`w-16 h-16 border-4 flex items-center justify-center bg-surface-container-highest transition-colors ${currentStyle.icon}`}>
+    <span class="material-symbols-outlined !text-4xl">{icon}</span>
+  </div>
+  <h3 class={`font-headline-md text-headline-md uppercase border-b-4 pb-2 transition-colors ${currentStyle.title}`}>{title}</h3>
+  <p class="font-body-md text-body-md">{desc}</p>
+</div>
