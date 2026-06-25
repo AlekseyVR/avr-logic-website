@@ -52,6 +52,42 @@ import Footer from '../components/Footer.astro';
         </div>
       </div>
 
+<!-- ПРАВЫЙ БЛОК: ГИГАНТСКИЙ ЖЕЛТЫЙ ТРИГГЕР ИИ -->
+      <div class="p-6 md:p-8 lg:p-12 flex flex-col justify-center items-center">
+        
+        <button 
+          onclick="window.toggleChat && window.toggleChat()"
+          class="group relative w-full h-full min-h-[350px] md:min-h-[450px] flex flex-col justify-center items-center bg-[#ffea00] border-4 border-on-surface p-6 md:p-8 hard-shadow hover:translate-x-[8px] hover:translate-y-[8px] hover:shadow-none active:translate-x-[12px] active:translate-y-[12px] transition-all duration-200 cursor-pointer overflow-hidden"
+        >
+          
+          <!-- Огромная фоновая стрелка, указывающая в правый нижний угол -->
+          <div class="absolute -right-8 -bottom-8 text-on-surface opacity-10 transition-transform duration-500 group-hover:translate-x-8 group-hover:translate-y-8 pointer-events-none">
+            <span class="material-symbols-outlined !text-[200px] md:!text-[350px] leading-none">south_east</span>
+          </div>
+
+          <div class="relative z-10 text-center w-full">
+            
+            <p class="font-code text-xs md:text-sm text-on-surface uppercase font-bold mb-6 tracking-widest bg-white px-3 py-1 border-2 border-on-surface inline-block -rotate-2 group-hover:rotate-0 transition-transform">
+              [ Не хочешь ждать ответа? ]
+            </p>
+
+            <!-- Гипертрофированная типографика -->
+            <h2 class="font-display text-[64px] sm:text-[80px] md:text-[100px] lg:text-[120px] uppercase leading-[0.8] text-on-surface group-hover:italic transition-all">
+              РАЗБУДИТЬ<br/>
+              <!-- Трюк с обводкой текста (stroke) для брутализма -->
+              <span class="text-transparent" style="-webkit-text-stroke: 3px var(--color-on-surface, #000);">ИИ</span>
+            </h2>
+
+            <div class="mt-8 flex items-center justify-center gap-3 font-code text-sm md:text-base uppercase font-black text-on-surface bg-white border-4 border-on-surface px-6 py-3 w-max mx-auto group-hover:bg-on-surface group-hover:text-white transition-colors">
+              <div class="w-4 h-4 bg-[#00ff00] border-2 border-on-surface animate-pulse"></div>
+              Кликни для запуска
+            </div>
+
+          </div>
+        </button>
+
+      </div>
+
       </div>
   </main>
 
