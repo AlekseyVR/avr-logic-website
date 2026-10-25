@@ -1,0 +1,396 @@
+---
+// src/pages/lizard-trail.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+
+  <main class="min-h-screen py-8 md:py-stack-lg">
+    
+    <!-- ХЛЕБНЫЕ КРОШКИ И ЗАГОЛОВОК КЕЙСА -->
+    <section class="px-4 md:px-grid-margin mb-8 md:mb-stack-lg">
+      <div class="flex items-center gap-2 font-code text-xs md:text-sm uppercase text-on-surface-variant mb-4">
+        <a href="/" class="hover:text-secondary underline">Главная</a>
+        <span>/</span>
+        <a href="/portfolio" class="hover:text-secondary underline">Портфолио</a>
+        <span>/</span>
+        <span class="text-secondary font-bold">Система записи под ваш бизнес</span>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="bg-primary-fixed border-2 border-on-surface px-3 py-1 text-xs font-bold font-code uppercase">TELEGRAM MINI APP</span>
+        <span class="bg-secondary text-white border-2 border-on-surface px-3 py-1 text-xs font-bold font-code uppercase">ИНДИВИДУАЛЬНАЯ РАЗРАБОТКА</span>
+        <span class="bg-white border-2 border-on-surface px-3 py-1 text-xs font-bold font-code uppercase">АВТОМАТИЗАЦИЯ БРОНИРОВАНИЯ</span>
+        <span class="bg-primary-container border-2 border-on-surface px-3 py-1 text-xs font-bold font-code uppercase">ИНТЕРАКТИВНОЕ ДЕМО</span>
+      </div>
+
+      <h1 class="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[68px] uppercase leading-[0.9] border-l-8 border-secondary pl-4 md:pl-6 max-w-5xl">
+        СИСТЕМА ЗАПИСИ<br/>
+        <span class="text-secondary italic">ПОД ВАШ БИЗНЕС</span>
+      </h1>
+      
+      <p class="font-body-lg text-base md:text-xl text-on-surface-variant mt-4 md:mt-6 max-w-3xl leading-relaxed">
+        Индивидуальная система записи для эндуро-проката, мотошколы и сервиса. Клиенты бронируют в Telegram за пару секунд — без звонков, регистрации и установки приложений. Менеджеры видят расписание, занятость техники и гидов в одном интерфейсе. Не нужно подстраивать бизнес под чужую CRM — решение собирается под ваши процессы и остается удобным для клиентов и команды.
+      </p>
+    </section>
+
+    <!-- ИНТЕРАКТИВНЫЙ СИМУЛЯТОР (SANDBOX) -->
+    <section class="px-4 md:px-grid-margin mb-12 md:mb-stack-lg">
+      <div class="bg-white border-4 border-on-surface hard-shadow p-6 md:p-10">
+        
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 border-b-4 border-on-surface pb-6 mb-8">
+          <div>
+            <div class="font-code text-xs md:text-sm font-bold text-secondary uppercase">[ ИНТЕРАКТИВНАЯ ПЕСОЧНИЦА ]</div>
+            <h2 class="font-headline-lg text-2xl md:text-3xl uppercase">Проверьте систему в действии</h2>
+          </div>
+
+          <!-- Переключатель экранов симулятора -->
+          <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto">
+            <button 
+              type="button" 
+              data-screen="/lizard-demo/index.html" 
+              class="sim-btn is-active px-3.5 py-2 border-2 border-on-surface font-code text-xs font-bold uppercase transition-all bg-primary-container text-on-surface cursor-pointer hard-shadow">
+              ГЛАВНАЯ (КЛИЕНТ)
+            </button>
+            <button 
+              type="button" 
+              data-screen="/lizard-demo/admin.html" 
+              class="sim-btn px-3.5 py-2 border-2 border-on-surface font-code text-xs font-bold uppercase transition-all bg-white hover:bg-neutral-100 text-on-surface cursor-pointer hard-shadow">
+              CRM (Менеджер)
+            </button>
+            <button 
+              type="button" 
+              id="reload-sim" 
+              title="Перезагрузить симулятор" 
+              class="px-2.5 py-2 border-2 border-on-surface font-code text-xs font-bold uppercase bg-white hover:bg-neutral-100 cursor-pointer flex items-center justify-center hard-shadow">
+              <span class="material-symbols-outlined text-sm">refresh</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Левая колонка: Корпус смартфона -->
+          <div class="lg:col-span-5 flex justify-center items-center py-4 bg-neutral-100 border-4 border-on-surface relative overflow-hidden min-h-[640px]">
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 16px 16px;"></div>
+
+            <!-- Рамка смартфона -->
+            <div id="phone-shell" class="relative w-[320px] h-[590px] bg-white border-4 border-on-surface shadow-[10px_10px_0px_0px_rgba(26,28,28,1)] rounded-[2.5rem] flex flex-col overflow-hidden z-10">
+              
+              <!-- "Челка" (Динамик и камера) -->
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-on-surface rounded-b-2xl z-20 flex justify-center items-center gap-2">
+                <div class="w-12 h-1.5 bg-neutral-700 rounded-full"></div>
+                <div class="w-2 h-2 bg-neutral-700 rounded-full"></div>
+              </div>
+
+              <!-- Боковые кнопки -->
+              <div class="absolute top-32 -right-5 w-1 h-16 bg-on-surface rounded-r-md"></div>
+              <div class="absolute top-24 -left-5 w-1 h-10 bg-on-surface rounded-l-md"></div>
+              <div class="absolute top-40 -left-5 w-1 h-10 bg-on-surface rounded-l-md"></div>
+
+              <!-- Iframe -->
+              <iframe 
+                id="demo-iframe"
+                src="/lizard-demo/index.html" 
+                class="w-full h-full border-none bg-white pt-7"
+                title="Демо: система записи под ваш бизнес">
+              </iframe>
+            </div>
+          </div>
+
+          <!-- Правая колонка: Интерактивный разбор сценария -->
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            
+            <div class="bg-primary-fixed border-4 border-on-surface p-5 hard-shadow">
+              <h3 class="font-label-bold text-lg uppercase mb-2 flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary">info</span>
+                Что перед вами в этом симуляторе?
+              </h3>
+              <p class="font-body-md text-sm md:text-base leading-relaxed text-on-surface-variant">
+                Это <strong>живой рабочий прототип системы</strong>. Переключайтесь между режимом клиента (удобный выбор маршрута, уровня подготовки и экипировки) и панелью CRM менеджера (актуальное расписание заездов, бронирование техники и база клиентов).
+              </p>
+            </div>
+
+            <!-- Шаги работы системы -->
+            <div class="space-y-4">
+              <h4 class="font-display text-xl uppercase font-bold border-b-2 border-on-surface pb-2">
+                Как инструмент решает бизнес-задачу:
+              </h4>
+
+              <div class="flex gap-4 items-start">
+                <div class="bg-secondary text-white font-display font-black text-lg w-10 h-10 border-2 border-on-surface flex items-center justify-center shrink-0 hard-shadow">
+                  1
+                </div>
+                <div>
+                  <h5 class="font-label-bold text-base uppercase">Нулевой порог входа для клиента</h5>
+                  <p class="font-body-md text-sm text-on-surface-variant">
+                    Пользователю не нужно регистрироваться, вспоминать пароли или скачивать стороннее приложение. Бронирование открывается в 1 клик прямо из Telegram-канала, бота или соцсетей.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 items-start">
+                <div class="bg-primary-container text-on-surface font-display font-black text-lg w-10 h-10 border-2 border-on-surface flex items-center justify-center shrink-0 hard-shadow">
+                  2
+                </div>
+                <div>
+                  <h5 class="font-label-bold text-base uppercase">Сбор всех параметров заказа без лишних звонков</h5>
+                  <p class="font-body-md text-sm text-on-surface-variant">
+                    Форма сразу фиксирует всё необходимое: количество человек, уровень опыта (новичок / уверенный / PRO), потребность в прокате мотоцикла, размеры экипировки и удобное время.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 items-start">
+                <div class="bg-white text-on-surface font-display font-black text-lg w-10 h-10 border-2 border-on-surface flex items-center justify-center shrink-0 hard-shadow">
+                  3
+                </div>
+                <div>
+                  <h5 class="font-label-bold text-base uppercase">Мгновенный пуш менеджеру в рабочий чат</h5>
+                  <p class="font-body-md text-sm text-on-surface-variant">
+                    Вся информация моментально отправляется администраторам и инструкторам в Telegram. Ни один клиент не теряется, даже если команда в этот момент находится на выезде в лесу.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4 items-start">
+                <div class="bg-on-surface text-surface font-display font-black text-lg w-10 h-10 border-2 border-on-surface flex items-center justify-center shrink-0 hard-shadow">
+                  4
+                </div>
+                <div>
+                  <h5 class="font-label-bold text-base uppercase">Наглядный календарь и подтверждение в 1 клик</h5>
+                  <p class="font-body-md text-sm text-on-surface-variant">
+                    Менеджер видит занятость мотоциклов и гидов по часам прямо с экрана смартфона. При подтверждении заявки бот сам отправляет клиенту уведомление (в Telegram или готовое сообщение для Viber/WhatsApp).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Быстрые ссылки -->
+            <div class="border-t-4 border-on-surface pt-4 flex flex-wrap gap-4 items-center">
+              <a href="#advantages" class="font-label-bold text-sm uppercase underline hover:text-secondary flex items-center gap-1">
+                Преимущества для бизнеса <span class="material-symbols-outlined text-sm">arrow_downward</span>
+              </a>
+              <a href="#results" class="font-label-bold text-sm uppercase underline hover:text-secondary flex items-center gap-1">
+                Бизнес-метрики <span class="material-symbols-outlined text-sm">arrow_downward</span>
+              </a>
+              <a href="/contact" class="font-label-bold text-sm uppercase text-secondary hover:underline flex items-center gap-1 ml-auto">
+                Обсудить внедрение <span class="material-symbols-outlined text-sm">east</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ПРОБЛЕМА БИЗНЕСА И РЕШЕНИЕ -->
+    <section class="px-4 md:px-grid-margin py-8 md:py-stack-md mb-8 md:mb-stack-lg border-y-4 border-on-surface bg-surface-bright">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        
+        <!-- Проблема -->
+        <div class="bg-white border-4 border-on-surface p-6 md:p-8 hard-shadow flex flex-col justify-between">
+          <div>
+            <div class="font-code text-xs font-bold text-secondary uppercase mb-2">[ 01. ПРОБЛЕМА БИЗНЕСА ]</div>
+            <h3 class="font-headline-lg text-2xl md:text-3xl uppercase mb-4">Почему готовые сервисы не работали</h3>
+            <ul class="space-y-4 font-body-md text-sm md:text-base text-on-surface-variant">
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-secondary shrink-0">cancel</span>
+                <span><strong>Специфика проката:</strong> Инструкторы 80% времени находятся на трассе в мотошлемах и экипировке. Отвечать на телефонные звонки физически невозможно.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-secondary shrink-0">cancel</span>
+                <span><strong>Ограничения готовых платформ:</strong> В популярных сервисах запись нацелена на услугу «под одного мастера» и не дает возможности записаться в один и тот же момент времени на групповые заезды нескольких человек.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-secondary shrink-0">cancel</span>
+                <span><strong>Громоздкие коробочные CRM:</strong> Перегружены сотнями ненужных полей, требуют платить ежемесячно за каждого сотрудника и неудобны для быстрой работы «в полях» с телефона.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Решение -->
+        <div class="bg-white border-4 border-on-surface p-6 md:p-8 hard-shadow flex flex-col justify-between">
+          <div>
+            <div class="font-code text-xs font-bold text-secondary uppercase mb-2">[ 02. ИНДИВИДУАЛЬНОЕ РЕШЕНИЕ ]</div>
+            <h3 class="font-headline-lg text-2xl md:text-3xl uppercase mb-4">Автономный инструмент под реальные задачи</h3>
+            <ul class="space-y-4 font-body-md text-sm md:text-base text-on-surface-variant">
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+                <span><strong>Запись за пару секунд:</strong> Интуитивный пошаговый процесс. Клиент выбирает дату, технику и уровень сложности маршрута буквально на ходу.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+                <span><strong>Точная заточка под ваши процессы:</strong> В системе нет ничего лишнего — только то, что нужно для расписания заездов, брони гидов, учета техники и сервиса.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+                <span><strong>Автономность и владение:</strong> Решение создается под ключ и принадлежит вам. База клиентов, история заездов и контакты находятся под вашим 100% контролем.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ПРЕИМУЩЕСТВА ИНДИВИДУАЛЬНОЙ РАЗРАБОТКИ -->
+    <section class="px-4 md:px-grid-margin mb-12 md:mb-stack-lg" id="advantages">
+      <h2 class="font-headline-lg text-3xl md:text-headline-lg uppercase italic border-l-8 border-primary pl-4 md:pl-6 mb-6">
+        Почему индивидуальный инструмент выгоднее типовой CRM
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white border-4 border-on-surface p-6 hard-shadow flex flex-col justify-between">
+          <div>
+            <div class="bg-primary-container border-2 border-on-surface px-2 py-1 text-[10px] font-bold font-code uppercase w-max mb-3">ПРОЦЕССЫ</div>
+            <h4 class="font-label-bold text-lg uppercase mb-2">100% учет вашей специфики</h4>
+            <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+              Никаких компромиссов с шаблонными сервисами. Логика бронирования, распределения ресурсов и статусов создана в точном соответствии с тем, как устроен ваш бизнес.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t-2 border-on-surface font-code text-xs text-secondary font-bold">
+            Точно под ваши задачи
+          </div>
+        </div>
+
+        <div class="bg-white border-4 border-on-surface p-6 hard-shadow flex flex-col justify-between">
+          <div>
+            <div class="bg-secondary-container text-white border-2 border-on-surface px-2 py-1 text-[10px] font-bold font-code uppercase w-max mb-3">КОНВЕРСИЯ</div>
+            <h4 class="font-label-bold text-lg uppercase mb-2">Максимум завершенных броней</h4>
+            <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+              Чем проще путь клиента, тем выше продажи. Telegram Mini App работает молниеносно даже при слабом интернете, не отвлекая клиента лишними формальностями.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t-2 border-on-surface font-code text-xs text-secondary font-bold">
+            До 3x выше конверсия
+          </div>
+        </div>
+
+        <div class="bg-white border-4 border-on-surface p-6 hard-shadow flex flex-col justify-between">
+          <div>
+            <div class="bg-primary-fixed border-2 border-on-surface px-2 py-1 text-[10px] font-bold font-code uppercase w-max mb-3">ЭКОНОМИЯ</div>
+            <h4 class="font-label-bold text-lg uppercase mb-2">Без скрытых абонентских плат</h4>
+            <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+              Вам не нужно платить ежемесячные комиссии и подписки за каждое рабочее место менеджера. Единственный сопутствующий расход — недорогой VPS-хостинг для работы сервиса в интернете.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t-2 border-on-surface font-code text-xs text-secondary font-bold">
+            VPS-хостинг от 15–20 BYN / мес
+          </div>
+        </div>
+
+        <div class="bg-white border-4 border-on-surface p-6 hard-shadow flex flex-col justify-between">
+          <div>
+            <div class="bg-surface-container-highest border-2 border-on-surface px-2 py-1 text-[10px] font-bold font-code uppercase w-max mb-3">БЕЗОПАСНОСТЬ</div>
+            <h4 class="font-label-bold text-lg uppercase mb-2">Независимость и полный контроль</h4>
+            <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+              Ваша клиентская база и история заказов защищены и хранятся на вашем сервере. Вы не зависите от сторонних облачных провайдеров и их ценовой политики.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t-2 border-on-surface font-code text-xs text-secondary font-bold">
+            Данные принадлежат вам
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- БИЗНЕС-РЕЗУЛЬТАТЫ -->
+    <section class="px-4 md:px-grid-margin mb-12 md:mb-stack-lg" id="results">
+      <div class="bg-on-surface text-surface border-4 border-on-surface p-6 md:p-12 hard-shadow">
+        <div class="max-w-4xl space-y-6">
+          <div class="inline-block bg-primary-container text-on-surface px-3 py-1 font-code text-xs font-bold uppercase border-2 border-on-surface">
+            [ РЕЗУЛЬТАТЫ ВНЕДРЕНИЯ ]
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase leading-none text-surface">
+            Инструмент, который <span class="text-primary-fixed italic">окупает себя сразу после запуска</span>
+          </h2>
+          <p class="font-body-lg text-base md:text-xl text-surface-container-highest leading-relaxed">
+            Система избавила команду проката от постоянного стресса с переписками в WhatsApp, потерей телефонных звонков и ручным заполнением блокнотов.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t-2 border-surface/20">
+            <div>
+              <div class="font-display text-4xl md:text-5xl text-primary-fixed font-black">0</div>
+              <p class="font-label-bold text-sm uppercase mt-1">Потерянных заявок</p>
+              <p class="font-body-md text-xs text-surface-container-highest mt-1">Каждая запись надежно фиксируется в едином расписании</p>
+            </div>
+            <div>
+              <div class="font-display text-4xl md:text-5xl text-primary-fixed font-black">~2 сек</div>
+              <p class="font-label-bold text-sm uppercase mt-1">На оформление брони</p>
+              <p class="font-body-md text-xs text-surface-container-highest mt-1">Клиент оформляет бронь в Telegram за пару секунд</p>
+            </div>
+            <div>
+              <div class="font-display text-4xl md:text-5xl text-primary-fixed font-black">VPS-хостинг</div>
+              <p class="font-label-bold text-sm uppercase mt-1">Единственный регулярный расход</p>
+              <p class="font-body-md text-xs text-surface-container-highest mt-1">Только аренда сервера (~15–20 BYN/мес) без абонплат за CRM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРИЗЫВ К ДЕЙСТВИЮ -->
+    <section class="px-4 md:px-grid-margin py-8 md:py-stack-md border-b-4 border-on-surface bg-primary-fixed">
+      <div class="bg-white border-4 border-on-surface p-6 md:p-12 hard-shadow flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
+        <div class="max-w-3xl space-y-4">
+          <div class="inline-block bg-on-surface text-surface px-3 py-1 font-code text-xs font-bold uppercase">
+            [ ИНДИВИДУАЛЬНЫЙ ПРОЕКТ ДЛЯ ВАС ]
+          </div>
+          <h3 class="font-display text-2xl sm:text-3xl md:text-4xl uppercase font-black leading-tight">
+            Нужна система онлайн-записи или CRM под ваши задачи?
+          </h3>
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant leading-relaxed">
+            Проектирую и запускаю индивидуальные Telegram-приложения и системы автоматизации с точной адаптацией под специфику вашей ниши. Вы получаете автономный инструмент с прозрачными расходами и полными правами владения.
+          </p>
+        </div>
+        <a href="/contact" class="w-full md:w-auto text-center whitespace-nowrap bg-secondary text-white font-label-bold uppercase text-sm md:text-base px-6 py-4 md:px-8 md:py-5 border-4 border-on-surface hard-shadow hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all">
+          ОБСУДИТЬ ВАШ ПРОЕКТ
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+
+  <script>
+    // Логика переключения экранов интерактивного симулятора
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.sim-btn');
+    const iframe = document.getElementById('demo-iframe') as HTMLIFrameElement;
+    const reloadBtn = document.getElementById('reload-sim');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetScreen = btn.getAttribute('data-screen');
+        if (!targetScreen || !iframe) return;
+
+        buttons.forEach((b) => {
+          b.classList.remove('is-active', 'bg-primary-container');
+          b.classList.add('bg-white');
+        });
+        btn.classList.add('is-active', 'bg-primary-container');
+        btn.classList.remove('bg-white');
+
+        // Переключаем iframe, сохраняя строгие пропорции телефона
+        iframe.src = targetScreen;
+      });
+    });
+
+    // Перезагрузка iframe
+    reloadBtn?.addEventListener('click', () => {
+      if (iframe) {
+        const cur = iframe.src;
+        iframe.src = 'about:blank';
+        setTimeout(() => { iframe.src = cur; }, 50);
+      }
+    });
+  </script>
+</Layout>
