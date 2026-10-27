@@ -24,14 +24,32 @@ import Footer from '../components/Footer.astro';
     <section class="px-4 md:px-grid-margin py-8 md:py-stack-md border-y-4 border-on-surface bg-surface-bright mb-8 md:mb-stack-lg group">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
         
-        <div class="border-4 border-on-surface h-full min-h-[250px] md:min-h-[400px] bg-primary-fixed hard-shadow flex items-center justify-center relative overflow-hidden order-last lg:order-first transition-transform group-hover:translate-x-[4px] group-hover:translate-y-[4px] group-hover:shadow-none active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">
-          <div class="absolute inset-0 custom-grid-bg opacity-30"></div>
-          <img 
-            src="/images/screenaichat.jpg" 
-            alt="ИИ бот на сайте, консультирующий клиентов" 
-            class="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100 group-active:grayscale-0 group-active:scale-100"
-          />
-        </div>
+        <button
+          type="button"
+          onclick="window.toggleChat && window.toggleChat()"
+          aria-label="Открыть чат с ИИ-консультантом"
+          class="group relative border-4 border-on-surface h-full min-h-[250px] md:min-h-[400px] bg-[#ffea00] hard-shadow flex flex-col items-center justify-center gap-4 md:gap-6 p-6 md:p-8 order-last lg:order-first overflow-hidden cursor-pointer text-center transition-transform hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
+        >
+          <div class="absolute inset-0 custom-grid-bg opacity-20 pointer-events-none"></div>
+
+          <span class="relative z-10 font-code text-[10px] md:text-xs font-bold uppercase tracking-wider bg-white border-2 border-on-surface px-3 py-1">
+            [ Живой ИИ-консультант ]
+          </span>
+
+          <span class="relative z-10 font-display text-[clamp(2rem,9vw,3.5rem)] md:text-[3.5rem] xl:text-6xl uppercase leading-[0.85] font-black text-on-surface">
+            Разбудить<br/>
+            <span class="text-transparent" style="-webkit-text-stroke: 2px var(--color-on-surface, #000);">ИИ</span>
+          </span>
+
+          <span class="relative z-10 inline-flex items-center justify-center gap-2 font-code text-[10px] md:text-xs uppercase font-black bg-on-surface text-surface px-4 py-2.5 border-2 border-on-surface">
+            Открыть чат
+            <span class="material-symbols-outlined !text-base">north_east</span>
+          </span>
+
+          <div class="absolute -right-6 -bottom-6 text-on-surface opacity-10 pointer-events-none">
+            <span class="material-symbols-outlined !text-[140px] md:!text-[200px] leading-none">forum</span>
+          </div>
+        </button>
 
         <div class="flex flex-col gap-4 md:gap-6 p-4 md:p-8">
           <div class="flex flex-wrap gap-2 md:gap-stack-sm mb-2 md:mb-stack-sm">
